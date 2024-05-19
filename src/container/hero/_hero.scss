@@ -1,0 +1,124 @@
+@use '../../scss/components/button';
+
+.hero {
+    display: grid;
+    grid-template-columns: var(--grid-container);
+    // height: 100vh;
+    
+    &__inner {
+        grid-column: inner;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 5rem;
+    }
+
+    &__content {
+        max-width: 470px;
+        margin-top: 248px;
+    }
+
+    &__title {
+        line-height: 1.05;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+    }
+
+    &__text {
+        line-height: 1.5;
+        margin-bottom: 3rem;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 3rem;
+
+    }
+
+    &__button:first-of-type {
+        @include button.default(var(--color-accent-400), var(--color-dark-400), transparent);
+
+    }
+
+    &__button:last-of-type {
+        @include button.default();
+
+    }
+
+    &__image {
+        position: absolute;
+        right: 0;
+        margin-top: 160px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .hero {
+
+        &__content {
+            margin-top: 160px;
+            margin-bottom: 88px;
+        }
+
+        &__title {
+            font-size: clamp(1.953125rem, 0.505rem + 4.1375vw, 3.815rem);
+        }
+
+        &__text {
+            font-size: clamp(1rem, 0.8056rem + 0.5556vw, 1.25rem);
+        }
+
+        &__image {
+            width: clamp(31.25rem, -40.2986rem + 115.1389vw, 51.8125rem);
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    
+    .hero {
+        --grid-container: [full-start] minmax(32px, 1fr) [inner-start] minmax(0, var(--page-width)) [inner-end] minmax(32px, 1fr) [full-end];
+        
+        &__inner {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        &__content {
+            margin-top: 136px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+        }
+
+        &__image {
+            margin-top: 0;
+            position: static;
+            width: 100%;
+            transform: translateY(-10%);
+        }
+
+        &__buttons {
+            justify-content: center;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 690px) {
+    .hero {
+
+        &__buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        &__image {
+            transform: translateY(0);
+        }
+    }
+}

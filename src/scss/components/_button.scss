@@ -1,0 +1,18 @@
+@mixin default($background: transparent, $text: var(--color-light-400), $border-color: var(--color-accent-400)) {
+    background-color: $background;
+    color: $text;
+    border: 2px solid $border-color;
+    border-radius: var(--border-radius);
+    padding: 0.4rem 1rem 0.6rem 1rem;
+    font-family: var(--font-header);
+    font-size: var(--font-size-1);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+        color: var(--color-dark-400);
+        background-color: var(--color-accent-500);
+        border: 2px solid var(--color-accent-500);
+    }
+}

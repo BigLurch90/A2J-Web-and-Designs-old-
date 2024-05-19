@@ -1,0 +1,104 @@
+@use '../../scss/components/button';
+
+.contact {
+    display: grid;
+    grid-template-columns: var(--grid-container);
+    margin-bottom: var(--section-gap);
+
+    &__inner {
+        grid-column: inner;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 469px;
+        width: 100%;
+    }
+    
+    &__title {
+        margin-bottom: 2rem;
+    }
+    
+    label {
+        margin-bottom: 1.5rem;
+    }
+    
+    input {
+        max-width: 469px;
+        width: 100%;
+        margin-bottom: 2rem;
+        height: 2.5rem;
+        background-color: var(--color-light-400);
+        border-radius: var(--border-radius);
+        border: 0;
+        outline: none;
+        font-size: var(--font-size-1);
+        font-family: var(--font-body);
+    }
+    
+    textarea {
+        max-width: 469px;
+        width: 100%;
+        margin-bottom: 3rem;
+        height: 5rem;
+        border: 0;
+        border-radius: var(--border-radius);
+        outline: none;
+        font-size: var(--font-size-1);
+        font-family: var(--font-body);
+    }
+
+    input[type=submit] {
+        width: auto;
+        height: 2.8rem;
+        @include button.default()
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 469px;
+        width: 100%;
+        box-shadow: 0px 1px 16px 0px rgba(227, 222, 255, 0.20) inset, 0px 4px 18px 0px rgba(154, 146, 210, 0.20) inset, 0px 2px 36px -48px rgba(202, 172, 255, 0.10) inset, 0px -62px 68px -64px rgba(96, 68, 144, 0.10) inset, 0px 7px 11px -4px rgba(255, 255, 255, 0.40) inset, 0px 14px 24px -36px rgba(255, 255, 255, 0.20) inset;
+        backdrop-filter: blur(50px);
+        padding-top: 4rem;
+        border-radius: var(--border-radius);
+
+        p {
+            margin: 1.5rem 0 5rem 0;
+        }
+    }
+}
+
+@media screen and (max-width: 1144px) {
+    .contact {
+
+        &__inner {
+            flex-direction: column;
+        }
+
+        &__title {
+            text-align: center;
+            width: 100%;
+        }
+
+        input[type=submit] {
+            margin: 0 auto 5rem auto;
+        }
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .contact {
+        --grid-container: [full-start] minmax(32px, 1fr) [inner-start] minmax(0, var(--page-width)) [inner-end] minmax(32px, 1fr) [full-end];
+        margin-bottom: 6rem;
+    }
+}

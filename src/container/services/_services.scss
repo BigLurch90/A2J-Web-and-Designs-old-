@@ -1,0 +1,144 @@
+@use '../../scss/components/button';
+
+.services {
+    display: grid;
+    grid-template-columns: var(--grid-container);
+    margin-bottom: var(--section-gap);
+    
+    &__inner {
+        grid-column: inner;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    &__description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+    
+    &__text {
+        max-width: 571px;
+        margin-bottom: 2rem;
+    }
+
+    &__button {
+
+        button {
+            @include button.default();
+            text-wrap: nowrap;
+        }
+    }
+
+}
+
+.description-section {
+    display: flex;
+    gap: 2rem;
+
+    &__description {
+        display: flex;
+        flex: 1;
+        box-shadow: 0px 1px 16px 0px rgba(227, 222, 255, 0.20) inset, 0px 4px 18px 0px rgba(154, 146, 210, 0.20) inset, 0px 2px 36px -48px rgba(202, 172, 255, 0.10) inset, 0px -62px 68px -64px rgba(96, 68, 144, 0.10) inset, 0px 7px 11px -4px rgba(255, 255, 255, 0.40) inset, 0px 14px 24px -36px rgba(255, 255, 255, 0.20) inset;
+        backdrop-filter: blur(50px);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        display: flex;
+        text-align: end;
+        line-height: var(--line-height);
+    }
+
+    &__line {
+        width: 2px;
+        height: 100%;
+        background-color: var(--color-light-400);
+        margin: 0 2rem;
+    }
+
+    &__icons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    &__content {
+        flex: 2;
+        box-shadow: 0px 1px 16px 0px rgba(227, 222, 255, 0.20) inset, 0px 4px 18px 0px rgba(154, 146, 210, 0.20) inset, 0px 2px 36px -48px rgba(202, 172, 255, 0.10) inset, 0px -62px 68px -64px rgba(96, 68, 144, 0.10) inset, 0px 7px 11px -4px rgba(255, 255, 255, 0.40) inset, 0px 14px 24px -36px rgba(255, 255, 255, 0.20) inset;
+        backdrop-filter: blur(50px);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .services {
+
+        &__inner {
+            grid-template-rows: repeat(4, auto);
+        }
+
+        &__description {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__button {
+            margin: 1rem 0 2rem 0;
+        }
+    }
+
+    .description-section {
+        flex-direction: column;
+
+        &:nth-of-type(2) {
+            flex-direction: column-reverse;
+        }
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .services {
+        --grid-container: [full-start] minmax(32px, 1fr) [inner-start] minmax(0, var(--page-width)) [inner-end] minmax(32px, 1fr) [full-end];
+        margin-bottom: 6rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .description-section {
+
+        &__description {
+            flex-direction: column;
+        }
+
+        &__title {
+
+            br {
+                display: none;
+                
+            }
+            
+        }
+
+        &__line {
+            display: none;
+        }
+
+        &__icons {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 1fr;
+        }
+    }
+    
+}
